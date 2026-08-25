@@ -12,8 +12,8 @@
   --border: #232938;
   --border-soft: #1a2029;
 
-  --text: #e8eaf0;
-  --text-dim: #9aa3b5;
+  --text: #F8FAFC;
+  --text-dim: #94A3B8;
   --text-faint: #5c6479;
 
   --accent: #e3a73c;
@@ -46,7 +46,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -82,8 +82,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   line-height: 1;
 }
 .brand-name {
-  font-weight: 600;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 14px;
   line-height: 1.25;
   letter-spacing: 0.2px;
 }
@@ -113,12 +113,12 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
 }
 .nav-icon { width: 16px; text-align: center; opacity: 0.9; }
 .nav-icon svg { display: block; margin: 0 auto; }
-.nav-label { font-size: 13px; }
+.nav-label { font-size: 14px; font-weight: 500; }
 
 .sidebar-footer {
   margin-top: auto;
   padding: 10px 8px 0 8px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-faint);
   letter-spacing: 0.3px;
 }
@@ -133,7 +133,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   border-bottom: 1px solid var(--border-soft);
   flex-shrink: 0;
 }
-.topbar h1 { font-size: 16px; font-weight: 600; margin: 0; letter-spacing: 0.2px; }
+.topbar h1 { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: 0.2px; }
 
 .content {
   flex: 1;
@@ -149,11 +149,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   border: 1px solid var(--border);
   background: var(--surface-2);
   color: var(--text);
-  padding: 7px 14px;
+  padding: 8px 14px;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   transition: background 0.12s ease, border-color 0.12s ease;
 }
 .btn:hover { background: var(--surface-hover); border-color: var(--accent-dim); }
@@ -162,7 +162,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
 .btn-ghost { background: transparent; border-color: var(--border); }
 .btn-danger { color: var(--danger); border-color: rgba(229, 72, 77, 0.35); background: transparent; }
 .btn-danger:hover { background: rgba(229, 72, 77, 0.1); }
-.btn-sm { padding: 4px 9px; font-size: 12px; }
+.btn-sm { padding: 5px 10px; font-size: 13px; }
 .btn-icon { padding: 6px 9px; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
@@ -174,7 +174,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   padding: 18px 20px;
 }
 .card-title {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   color: var(--text-faint);
@@ -191,41 +191,64 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
 
 .revenue-figure {
   font-family: var(--font-mono);
-  font-size: 34px;
-  font-weight: 600;
+  font-size: 38px;
+  font-weight: 700;
   color: var(--accent);
   letter-spacing: -0.5px;
 }
-.revenue-sub { color: var(--text-faint); font-size: 12px; margin-top: 4px; }
+.revenue-sub { color: var(--text-faint); font-size: 13px; margin-top: 4px; }
 
 .check-news-card { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-.check-news-desc { color: var(--text-dim); font-size: 12.5px; line-height: 1.5; margin: 0; }
+.check-news-desc { color: var(--text-dim); font-size: 14px; line-height: 1.5; margin: 0; }
 
 /* Signature element: Upcoming TGE ledger/timeline */
-.tge-panel { max-height: 260px; overflow-y: auto; display: flex; flex-direction: column; }
+.tge-panel { 
+  max-height: 260px; 
+  overflow-y: auto; 
+  display: flex; 
+  flex-direction: column; 
+}
+/* Hide scrollbar but keep scroll functionality */
+.tge-panel::-webkit-scrollbar { 
+  width: 0; 
+  opacity: 0; 
+  display: none; 
+}
+.tge-panel { 
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .tge-empty { color: var(--text-faint); font-size: 13px; padding: 8px 0; }
 .tge-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 0;
+  padding: 10px 0 10px 16px;
   border-bottom: 1px solid var(--border-soft);
   position: relative;
-  padding-left: 16px;
+  border-left: 3px solid #3B82F6;
+  transition: transform 0.15s ease, background 0.15s ease;
+  cursor: default;
+}
+.tge-row:hover {
+  transform: translateX(4px);
+  background: rgba(59, 130, 246, 0.05);
 }
 .tge-row:last-child { border-bottom: none; }
-.tge-row::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 14px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--status-tge);
+.tge-name { 
+  font-weight: 600; 
+  flex: 1; 
+  min-width: 0; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+  font-size: 14px;
 }
-.tge-name { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.tge-date { font-family: var(--font-mono); color: var(--text-dim); font-size: 12.5px; }
+.tge-date { 
+  font-family: var(--font-mono); 
+  color: var(--text-dim); 
+  font-size: 0.8rem;
+}
 
 /* ---------------------------------- Tables ------------------------------- */
 .list-toolbar {
@@ -246,7 +269,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
 table { width: 100%; border-collapse: collapse; }
 thead th {
   text-align: left;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--text-faint);
@@ -258,15 +281,15 @@ thead th {
 tbody td {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-soft);
-  font-size: 13px;
+  font-size: 14px;
   vertical-align: middle;
 }
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: var(--surface-2); }
-.cell-mono { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-dim); }
+.cell-mono { font-family: var(--font-mono); font-size: 13px; color: var(--text-dim); }
 .cell-actions { display: flex; gap: 6px; justify-content: flex-end; white-space: nowrap; }
-.cell-name { font-weight: 600; }
-.cell-note { color: var(--text-faint); font-size: 12.5px; }
+.cell-name { font-weight: 700; }
+.cell-note { color: var(--text-faint); font-size: 13px; }
 
 .play-btn {
   width: 26px; height: 26px;
@@ -284,7 +307,7 @@ tbody tr:hover { background: var(--surface-2); }
   padding: 48px 20px;
   text-align: center;
   color: var(--text-faint);
-  font-size: 13px;
+  font-size: 14px;
 }
 .error-banner {
   background: rgba(229, 72, 77, 0.1);
@@ -292,7 +315,7 @@ tbody tr:hover { background: var(--surface-2); }
   color: #ff8a8f;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 14px;
 }
 
@@ -300,9 +323,9 @@ tbody tr:hover { background: var(--surface-2); }
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.3px;
 }
@@ -336,7 +359,7 @@ tbody tr:hover { background: var(--surface-2); }
   padding: 16px 20px;
   border-bottom: 1px solid var(--border-soft);
 }
-.modal-header h2 { margin: 0; font-size: 14px; font-weight: 600; }
+.modal-header h2 { margin: 0; font-size: 16px; font-weight: 700; }
 .modal-close { background: none; border: none; color: var(--text-faint); cursor: pointer; font-size: 16px; padding: 2px 6px; }
 .modal-close:hover { color: var(--text); }
 .modal-body { padding: 18px 20px; }
@@ -349,10 +372,10 @@ tbody tr:hover { background: var(--surface-2); }
 .form-group { margin-bottom: 14px; }
 .form-group label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-dim);
   margin-bottom: 6px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 input[type=text], input[type=number], input[type=date], textarea, select {
@@ -372,12 +395,12 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
 .status-option {
   flex: 1;
   text-align: center;
-  padding: 8px 6px;
+  padding: 9px 6px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   background: var(--bg);
   color: var(--text-dim);
 }
@@ -387,7 +410,7 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
 
 /* ---------------------------------- Check News dialog --------------------- */
 .scope-options { display: flex; gap: 16px; margin-bottom: 4px; }
-.scope-option { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+.scope-option { display: flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; }
 
 .prompt-box {
   background: var(--bg);
@@ -395,7 +418,7 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
   border-radius: var(--radius-sm);
   padding: 12px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   white-space: pre-wrap;
   max-height: 180px;
   overflow-y: auto;
@@ -405,10 +428,10 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
 .handle-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .handle-chip {
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 12.5px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  padding: 3px 8px;
+  padding: 4px 9px;
   border-radius: 999px;
   color: var(--text-dim);
 }
@@ -420,9 +443,9 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
   border: 1px solid var(--border);
   border-left: 3px solid var(--success);
   color: var(--text);
-  padding: 10px 16px;
+  padding: 11px 16px;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.35);
   animation: slideIn 0.15s ease;
   min-width: 200px;
@@ -434,7 +457,7 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
 .text-dim { color: var(--text-dim); }
 .text-faint { color: var(--text-faint); }
 .mt-8 { margin-top: 8px; }
-.field-note { font-size: 11px; color: var(--text-faint); margin-top: -8px; margin-bottom: 12px; }
+.field-note { font-size: 12px; color: var(--text-faint); margin-top: -8px; margin-bottom: 12px; }
 
 /* ---------------------------------- Scrollbar ----------------------------------- */
 .table-wrap::-webkit-scrollbar {
