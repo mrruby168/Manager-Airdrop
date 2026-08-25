@@ -57,7 +57,7 @@ class Api:
             timestamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
             default_name = f"manager-airdrop-{list_type.lower()}-{timestamp}.json"
             result = window.create_file_dialog(
-                webview.FileDialog.SAVE,
+                webview.SAVE_DIALOG,
                 directory=path_utils.get_default_export_dir(),
                 save_filename=default_name,
                 file_types=("JSON Files (*.json)", "All files (*.*)"),
@@ -77,7 +77,7 @@ class Api:
         try:
             window = webview.windows[0]
             result = window.create_file_dialog(
-                webview.FileDialog.OPEN,
+                webview.OPEN_DIALOG,
                 directory=path_utils.get_default_export_dir(),
                 file_types=("JSON Files (*.json)", "All files (*.*)"),
             )
@@ -176,7 +176,7 @@ class Api:
     def browse_folder(self):
         try:
             window = webview.windows[0]
-            result = window.create_file_dialog(webview.FileDialog.FOLDER)
+            result = window.create_file_dialog(webview.FOLDER_DIALOG)
             if result:
                 return {"success": True, "path": result[0]}
             return {"success": False}
