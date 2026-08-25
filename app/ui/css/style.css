@@ -240,7 +240,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; colo
   background: var(--surface);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius);
-  overflow: hidden;
+  max-height: 500px;
+  overflow-y: auto;
 }
 table { width: 100%; border-collapse: collapse; }
 thead th {
@@ -434,3 +435,27 @@ textarea { resize: vertical; min-height: 64px; font-family: var(--font-mono); fo
 .text-faint { color: var(--text-faint); }
 .mt-8 { margin-top: 8px; }
 .field-note { font-size: 11px; color: var(--text-faint); margin-top: -8px; margin-bottom: 12px; }
+
+/* ---------------------------------- Scrollbar ----------------------------------- */
+.table-wrap::-webkit-scrollbar {
+  width: 8px;
+}
+.table-wrap::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: 4px;
+}
+.table-wrap::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+.table-wrap::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
+
+/* Firefox scrollbar support */
+.table-wrap {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+/* ---------------------------------- End ----------------------------------- */
