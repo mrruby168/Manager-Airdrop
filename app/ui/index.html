@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manager Airdrop</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">Manager<br/>Airdrop</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item" data-route="dashboard">
+          <span class="nav-icon">▣</span><span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-item" data-route="main-list">
+          <span class="nav-icon">☰</span><span class="nav-label">Main List</span>
+        </button>
+        <button class="nav-item" data-route="secondary-list">
+          <span class="nav-icon">☰</span><span class="nav-label">Secondary List</span>
+        </button>
+        <button class="nav-item" data-route="wallet">
+          <span class="nav-icon">◈</span><span class="nav-label">Wallet</span>
+        </button>
+        <button class="nav-item" data-route="revenue">
+          <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none">
+            <rect x="2" y="5" width="20" height="14" rx="2" stroke="#F59E0B" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 10H22" stroke="#F59E0B" stroke-width="2"/>
+            <rect x="5" y="13" width="4" height="3" rx="0.5" fill="#F59E0B"/>
+          </svg></span><span class="nav-label">Revenue</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">Local · SQLite</div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <h1 id="page-title">Dashboard</h1>
+        <button class="btn btn-ghost" id="btn-settings">⚙ Settings</button>
+      </header>
+      <main id="content" class="content"><div class="loading-state">Đang tải…</div></main>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
